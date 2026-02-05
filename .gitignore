@@ -1,0 +1,15 @@
+.venv/
+__pycache__/
+.DS_Store
+
+data/
+datasets/
+
+checkpoints/
+outputs/
+results/
+
+*.pth
+*.pt
+*.zip
+*.log
