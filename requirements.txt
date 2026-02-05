@@ -1,0 +1,10 @@
+torch
+torchvision
+dominate
+visdom
+tqdm
+opencv-python
+pillow
+numpy
+scipy
+wandb
