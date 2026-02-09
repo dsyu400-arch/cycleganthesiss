@@ -24,9 +24,9 @@ python "${CYCLEGAN_DIR}/train.py" \
   --name horse2zebra_demo \
   --model cycle_gan \
   --epoch_count 1 \
-  --n_epochs 25 \
-  --n_epochs_decay 25 \
-  --max_dataset_size inf \
-  --num_threads 2 \
-  --save_epoch_freq 5 \
+  --n_epochs 1 \
+  --n_epochs_decay 0 \
+  --max_dataset_size 200 \
+  --num_threads 0 \
+  --save_epoch_freq 1 \
   --checkpoints_dir "${ROOT_DIR}/checkpoints"

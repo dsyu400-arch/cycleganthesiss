@@ -24,8 +24,8 @@ python "${CYCLEGAN_DIR}/test.py" \
   --name horse2zebra_demo \
   --model cycle_gan \
   --phase test \
-  --epoch latest \
+  --epoch 1 \
   --no_dropout \
-  --num_test 50 \
+  --num_test 10 \
   --results_dir "${ROOT_DIR}/outputs/horse2zebra_demo" \
   --checkpoints_dir "${ROOT_DIR}/checkpoints"
