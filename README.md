@@ -17,11 +17,15 @@ This repo provides a minimal, reproducible project skeleton for a CycleGAN thesi
 ```
 Dataset will be placed at `data/horse2zebra/{trainA,trainB,testA,testB}`.
 
-## 3) Add CycleGAN code
-This skeleton expects `train.py` and `test.py` in the repo root.
-If you’re using the official PyTorch implementation, place its files here.
+## 3) CycleGAN code location
+Demo scripts run CycleGAN from:
+`pytorch-CycleGAN-and-pix2pix-src/`
 
-## 4) Train 1 epoch (demo)
+So the expected entrypoints are:
+- `pytorch-CycleGAN-and-pix2pix-src/train.py`
+- `pytorch-CycleGAN-and-pix2pix-src/test.py`
+
+## 4) Train (25 + 25 epochs)
 ```bash
 ./scripts/train_demo.sh
 ```
