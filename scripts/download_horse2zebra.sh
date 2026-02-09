@@ -18,11 +18,6 @@ URLS=(
 
 has_cmd() { command -v "$1" >/dev/null 2>&1; }
 
-has_non_empty_split() {
-  local split="$1"
-  [ -d "${DATA_DIR}/${split}" ] && [ -n "$(ls -A "${DATA_DIR}/${split}" 2>/dev/null)" ]
-}
-
 if has_cmd curl; then
   DOWNLOADER="curl"
 elif has_cmd wget; then
@@ -54,7 +49,7 @@ download_url() {
   fi
 }
 
-if has_non_empty_split trainA && has_non_empty_split trainB && has_non_empty_split testA && has_non_empty_split testB; then
+if [ -d "${DATA_DIR}/trainA" ] && [ -d "${DATA_DIR}/trainB" ] && [ -d "${DATA_DIR}/testA" ] && [ -d "${DATA_DIR}/testB" ]; then
   echo "Dataset already present at ${DATA_DIR}"
   exit 0
 fi
@@ -118,8 +113,12 @@ else
 fi
 
 for split in trainA trainB testA testB; do
-  if ! has_non_empty_split "$split"; then
-    echo "Missing or empty split: ${DATA_DIR}/${split}" >&2
+  if [ ! -d "${DATA_DIR}/${split}" ]; then
+    echo "Missing split: ${DATA_DIR}/${split}" >&2
+    exit 1
+  fi
+  if [ -z "$(ls -A "${DATA_DIR}/${split}" 2>/dev/null)" ]; then
+    echo "Split is empty: ${DATA_DIR}/${split}" >&2
     exit 1
   fi
 done
